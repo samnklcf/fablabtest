@@ -49,21 +49,46 @@
       class="vd wo/4 sd qo f ho oo wf yf"
       :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }"
     >
-      <nav>
-        <ul class="tc _o sf yo cg ep">
-          <li><a href="index.html" class="xl" >Accueil</a></li>
-          
-          <li><a href="./dev.html" class="xl" :class="{ 'mk': page === 'home' }">Développement Web et web mobile</a></li>
-          
-          <li><a href="./robotique.html" class="xl" >Robotique</a></li>
-          
-          
-          <li><a href="./3d.html" class="xl">Conception 3D</a></li>
-         
-          
-         
-        </ul>
-      </nav>
+    <nav>
+      <ul class="tc _o sf yo cg ep">
+        <li><a href="index.html" class="xl black">Accueil</a></li>
+        
+        
+        <li class="c i black" x-data="{ dropdown: false }">
+          <a
+            href="#"
+            class="xl tc wf yf bg"
+            @click.prevent="dropdown = !dropdown"
+            
+          >
+            Nos formations
+
+            <svg
+            :class="{ 'wh': dropdown }"
+            class="th mm we fd pf" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+            </svg>
+          </a>
+
+          <!-- Dropdown Start -->
+          <ul class="a" :class="{ 'tc': dropdown }">
+            <li><a href="./dev.html" class="xl" :class="{ 'mk': page === 'blog-grid' }">Développement Web et web mobile</a></li>
+            <li><a href="./robotique.html" class="xl" >Robotique</a></li>
+            <li><a href="./3d.html" class="xl" :class="{ 'mk': page === 'signin' }">Conception 3D</a></li>
+            
+          </ul>
+          <!-- Dropdown End -->
+        </li>
+
+        <li><a href="./apropos.html" class="xl black" >A-propos</a></li>
+        <li><a href="./contact.html" class="xl black" >Contact</a></li>
+       
+        
+       
+      </ul>
+
+      
+    </nav>
 
       <div class="tc wf ig pb no">
         
@@ -76,8 +101,33 @@
 </header>
 
     <main>
+      <br><br><br><br><br>
+      
       <!-- ===== Blog Single Start ===== -->
+      <section class="i pg gh ji my-24 px-6 mx-auto" style="height: 200px;">
+        <!-- Bg Shape -->
+        <img class="h p q" src="images/shape-16.svg" alt="Bg Shape">
+      
+        <div class="bb ye i z-10 ki xn dr">
+          <div class="tc uf sn tn un gg">
+            <div class="animate_left to/2" data-sr-id="12" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 2.8s cubic-bezier(0.5, 0, 0, 1) 0s;">
+              <h2 class="fk vj zp pr lk ac">
+                 Robotique
+              </h2>
+              <p class="lk">
+              </p>
+            </div>
+            <div class="animate_right bf" data-sr-id="14" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 2.8s cubic-bezier(0.5, 0, 0, 1) 0s;">
+              <a href="./index.html" class="" style="color: white;">
+                 Acceuil
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="gj qp gr hj rp hr">
+        
         <div class="bb ze ki xn 2xl:ud-px-0">
           <div class="tc sf yo zf kq">
             <div class="ro">
@@ -121,13 +171,13 @@
                   <div class="tc fg 2xl:ud-gap-6 qb">
                     <img src="./galeries/M4-PLANT-3D-Rohrleitungsbau.png" alt="Blog" width="95" style="border-radius: 8px;"/>
                     <h5 class="wj kk wm xl bn ml il">
-                      <a href="#">C'est quoi la conception 3D ?</a>
+                      <a href="./3d.html">C'est quoi la conception 3D ?</a>
                     </h5>
                   </div>
                   <div class="tc fg 2xl:ud-gap-6 qb">
                     <img src="./galeries/possessed-photography-g29arbbvPjo-unsplash.jpg" alt="Blog" width="95" style="border-radius: 8px;"/>
                     <h5 class="wj kk wm xl bn ml il">
-                      <a href="#">C'est quoi la robotique ?</a>
+                      <a href="./robotique.html">C'est quoi la robotique ?</a>
                     </h5>
                   </div>
                   
@@ -248,26 +298,37 @@
     
             <div class="vd ro tc sf rn un gg vn">
               <div class="animate_top">
-                <h4 class="kk wm tj ec">Quick Links</h4>
+                <h4 class="kk wm tj ec">Liens utiles</h4>
     
                 <ul>
-                  <li><a href="#" class="sc xl vb">Accueil</a></li>
-                  <li><a href="#" class="sc xl vb">Nos formations</a></li>
+                  <li><a href="./index.html" class="sc xl vb">Accueil</a></li>
+                  <li><a href="./apropos.html" class="sc xl vb">A propos</a></li>
+                  <li><a href="./contact.html" class="sc xl vb">Contact</a></li>
                   
                 </ul>
               </div>
     
               <div class="animate_top">
-                <h4 class="kk wm tj ec">Services</h4>
+                <h4 class="kk wm tj ec">Nos formations</h4>
     
                 <ul>
-                  <li><a href="#" class="sc xl vb">Développement Web</a></li>
-                  <li><a href="#" class="sc xl vb">Conception 3D</a></li>
-                  <li><a href="#" class="sc xl vb">Robotique</a></li>
+                  <li><a href="./dev.html" class="sc xl vb">Développement Web</a></li>
+                  <li><a href="./3d.html" class="sc xl vb">Conception 3D</a></li>
+                  <li><a href="./robotique.html" class="sc xl vb">Robotique</a></li>
                 
                 </ul>
               </div>
     
+              <div class="animate_top">
+                <h4 class="kk wm tj ec">Contact</h4>
+    
+                <ul>
+                  <li><a href="mailto:fablab@gmail.com" class="sc xl vb">fablab@gmail.com</a></li>
+                  <li><a href="tel:074570040" class="sc xl vb">074 57 00 40</a></li>
+                  <li><a href="#" class="sc xl vb">Lieu: Moanda</a></li>
+                
+                </ul>
+              </div>
               
     
               <div class="animate_top">

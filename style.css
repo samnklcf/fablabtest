@@ -2585,3 +2585,22 @@ h1,  h2,  h3,  h4,  h5,  h6{
   }
 }
 
+.black {
+  color: #181C31 !important;
+  font-weight: 900;
+
+}
+
+.entete {
+  background-color: #4E6BFF;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.entete h3 {
+  
+}
+

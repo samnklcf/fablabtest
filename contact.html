@@ -4,19 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Robotique</title>
-    <link rel="icon" href="./images/Screenshot_20221228-154338_Lite.jpg"><link href="style.css" rel="stylesheet"></head>
+    <title>FabLab | Accueil</title>
+    <link rel="icon" href="./images/Screenshot_20221228-154338_Lite.jpg"><link href="style.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
 
   <body
-    x-data="{ page: 'blog-single', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
+    x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
     x-init="
          darkMode = JSON.parse(localStorage.getItem('darkMode'));
          $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
     :class="{'b eh': darkMode === true}"
   >
-    
-  <!-- =============header=============== -->
-  <header
+    <!-- ===== Header Start ===== -->
+    <header
   class="g s r vd ya cj"
   :class="{ 'hh sm _k dj bl ll' : stickyMenu }"
   @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false"
@@ -49,61 +54,107 @@
       class="vd wo/4 sd qo f ho oo wf yf"
       :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }"
     >
-    <nav>
-      <ul class="tc _o sf yo cg ep">
-        <li><a href="index.html" class="xl black">Accueil</a></li>
+      <nav>
+        <ul class="tc _o sf yo cg ep">
+          <li><a href="index.html" class="xl black">Accueil</a></li>
+          
+          
+          <li class="c i black" x-data="{ dropdown: false }">
+            <a
+              href="#"
+              class="xl tc wf yf bg"
+              @click.prevent="dropdown = !dropdown"
+              :class="{ 'mk': page === 'blog-grid' || page === 'blog-single' || page === 'signin' || page === 'signup' || page === '404' }"
+            >
+              Nos formations
+  
+              <svg
+              :class="{ 'wh': dropdown }"
+              class="th mm we fd pf" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+              </svg>
+            </a>
+  
+            <!-- Dropdown Start -->
+            <ul class="a" :class="{ 'tc': dropdown }">
+              <li><a href="./dev.html" class="xl" :class="{ 'mk': page === 'blog-grid' }">Développement Web et web mobile</a></li>
+              <li><a href="./robotique.html" class="xl" :class="{ 'mk': page === 'blog-single' }">Robotique</a></li>
+              <li><a href="./3d.html" class="xl" :class="{ 'mk': page === 'signin' }">Conception 3D</a></li>
+              
+            </ul>
+            <!-- Dropdown End -->
+          </li>
+
+          <li><a href="./apropos.html" class="xl black" >A-propos</a></li>
+          <li><a href="./contact.html" class="xl black" >Contact</a></li>
+         
+          
+         
+        </ul>
+
         
-        
-        <li class="c i black" x-data="{ dropdown: false }">
-          <a
-            href="#"
-            class="xl tc wf yf bg"
-            @click.prevent="dropdown = !dropdown"
-            :class="{ 'mk': page === 'blog-grid' || page === 'blog-single' || page === 'signin' || page === 'signup' || page === '404' }"
-          >
-            Nos formations
-
-            <svg
-            :class="{ 'wh': dropdown }"
-            class="th mm we fd pf" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-              <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-            </svg>
-          </a>
-
-          <!-- Dropdown Start -->
-          <ul class="a" :class="{ 'tc': dropdown }">
-            <li><a href="./dev.html" class="xl" :class="{ 'mk': page === 'blog-grid' }">Développement Web et web mobile</a></li>
-            <li><a href="./robotique.html" class="xl" :class="{ 'mk': page === 'blog-single' }">Robotique</a></li>
-            <li><a href="./3d.html" class="xl" :class="{ 'mk': page === 'signin' }">Conception 3D</a></li>
-            
-          </ul>
-          <!-- Dropdown End -->
-        </li>
-
-        <li><a href="./apropos.html" class="xl black" >A-propos</a></li>
-        <li><a href="./contact.html" class="xl black" >Contact</a></li>
-       
-        
-       
-      </ul>
-
-      
-    </nav>
+      </nav>
 
       <div class="tc wf ig pb no">
         
 
         
-        <a href="signup.html" :class="{ 'hh/[0.15]' : page === 'home', 'sh' : page === 'home' && stickyMenu }" class="lk gh dk rg tc wf xf _l gi hi">S'inscrire</a>
+        <a href="signup.html"  class="lk gh dk rg tc wf xf _l gi hi">S'inscrire</a>
       </div>
     </div>
   </div>
 </header>
 
-
+    <!-- ===== Header End ===== -->
 
     <main>
-      <br><br><br><br><br>
+      
+     
+      
+      <br>
+      <br>
+      
+
+      <!-- ===== About Start ===== -->
+      
+      <!-- ===== About End ===== -->
+
+      <!-- ===== Team Start ===== -->
+
+      
+
+     
+      <!-- ===== Team End ===== -->
+
+      <!-- ===== Services Start ===== -->
+      
+      <!-- ===== Services End ===== -->
+
+      <!-- ===== Pricing Table Start ===== -->
+      
+      <!-- ===== Pricing Table End ===== -->
+
+      <!-- ===== Projects Start ===== -->
+      
+      <!-- ===== Projects End ===== -->
+
+      <!-- ===== Testimonials Start ===== -->
+      
+
+      
+      <!-- ===== Counter End ===== -->
+
+      <!-- ===== Clients Start ===== -->
+      
+      <!-- ===== Clients End ===== -->
+
+      
+
+      
+      <!-- ===== Contact End ===== -->
+
+      <!-- ===== CTA Start ===== -->
+      <!-- Container for demo purpose -->
       <section class="i pg gh ji my-24 px-6 mx-auto" style="height: 200px;">
         <!-- Bg Shape -->
         <img class="h p q" src="images/shape-16.svg" alt="Bg Shape">
@@ -112,110 +163,106 @@
           <div class="tc uf sn tn un gg">
             <div class="animate_left to/2" data-sr-id="12" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 2.8s cubic-bezier(0.5, 0, 0, 1) 0s;">
               <h2 class="fk vj zp pr lk ac">
-                 Conception 3D
+                  Contact
               </h2>
               <p class="lk">
               </p>
             </div>
             <div class="animate_right bf" data-sr-id="14" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 2.8s cubic-bezier(0.5, 0, 0, 1) 0s;">
               <a href="./index.html" class="" style="color: white;">
-                 Acceuil
+                 Accueil
               </a>
             </div>
           </div>
         </div>
       </section>
-      <!-- ===== Blog Single Start ===== -->
-      <section class="gj qp gr hj rp hr">
-        <div class="bb ze ki xn 2xl:ud-px-0">
-          <div class="tc sf yo zf kq">
-            <div class="ro">
-              <div class="animate_top rounded-md shadow-solid-13 bg-white dark:bg-blacksection border border-stroke dark:border-strokedark p-7.5 md:p-10">
-                <img src="./galeries/enginre/3D/pexels-uzunov-rostislav-10458835.jpg" alt="Blog" style="border-radius: 8px;" />
+<div class="container my-24 px-6 mx-auto">
+  
+  
 
-                <h2 class="ek vj 2xl:ud-text-title-lg kk wm nb gb">C'est quoi la conception 3D ?</h2>
-
-                
-
-                <p>
-                  La conception 3D est un processus de création de modèles et de dessins en trois dimensions sur un ordinateur. Elle permet de visualiser et de manipuler virtuellement des objets et des environnements en trois dimensions, comme s'ils existaient réellement dans l'espace.                </p>
-                  <p>                  La conception 3D peut être utilisée dans de nombreux domaines, tels que l'architecture, l'ingénierie, le design industriel, les jeux vidéo, l'animation et le cinéma. Elle est généralement réalisée à l'aide de logiciels de conception 3D spécialisés, qui permettent de créer des modèles en utilisant différentes techniques de modélisation, de texturage et de rendu.                  
-                  </p>
-                
-
-                <div class="wc qf pn dg cb">
-                  <img src="./galeries/enginre/3D/pexels-mo-eid-8657160.jpg" alt="Blog" style="border-radius: 8px;" />
-                  <img src="./galeries/enginre/3D/pexels-mo-eid-9002742.jpg" alt="Blog" style="border-radius: 8px;" />
-                </div>
-
-                <h2 class="ek vj 2xl:ud-text-title-lg kk wm nb qb">Avantages de cette formation</h2>
-                <p>
-                  L'apprenant sera à l'aise avec les concepts liés à la conception 3D et obtiendra un stage à la COMILOG
-                  
-                </p>
-
-                
-
-
-
-                
-                
-              </div>
-            </div>
-
-            <div class="jn/2 so">
-              
-              
-
-              <div class="animate_top">
-                <h4 class="tj kk wm qb">Autres: </h4>
-
-                <div>
-                  <div class="tc fg 2xl:ud-gap-6 qb">
-                    <img src="./galeries/emile-perron-xrVDYZRGdw4-unsplash.jpg" alt="Blog" width="95" style="border-radius: 8px;"/>
-                    <h5 class="wj kk wm xl bn ml il">
-                      <a href="./dev.html">C'est quoi développeur web et web mobile ?</a>
-                    </h5>
-                  </div>
-                  <div class="tc fg 2xl:ud-gap-6 qb">
-                    <img src="./galeries/enginre/robot/pexels-alex-knight-2599244.jpg" alt="Blog" width="95" style="border-radius: 8px;"/>
-                    <h5 class="wj kk wm xl bn ml il">
-                      <a href="./robotique.html">C'est quoi la robotique ?</a>
-                    </h5>
-                  </div>
-                  
-                  
-                </div>
-              </div>
-            </div>
+  <!-- Section: Design Block -->
+  <section class="mb-32 text-gray-800">
+    <style>
+      .map-container-2 {
+        height: 500px;
+      }
+    </style>
+    <div class="block rounded-lg shadow-lg bg-white">
+      <div class="flex flex-wrap items-center">
+        <div class="grow-0 shrink-0 basis-auto block w-full lg:flex lg:w-6/12 xl:w-4/12">
+          <div class="map-container-2 w-full">
+            <div class="mapouter"><div class="gmap_canvas"><iframe  src="https://maps.google.com/maps?q=fablab%20moanda&t=&z=13&ie=UTF8&iwloc=&output=embed" class="left-0 top-0 h-full w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg" frameborder="0" allowfullscreen></iframe><a href="https://www.whatismyip-address.com"></a><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {background:none!important;height:500px;}</style></div></div>
           </div>
         </div>
-      </section>
-      <!-- ===== Blog Single End ===== -->
-
-      <!-- ===== CTA Start ===== -->
-      <section class="i pg gh ji">
-  <!-- Bg Shape -->
-  <img class="h p q" src="images/shape-16.svg" alt="Bg Shape" />
-
-  <div class="bb ye i z-10 ki xn dr">
-    <div class="tc uf sn tn un gg">
-      <div class="animate_left to/2">
-        <h2 class="fk vj zp pr lk ac">
-            Etes-vous intêréssé(e) le métier de concepteur 3D ?
-        </h2>
-        <p class="lk">
-        </p>
-      </div>
-      <div class="animate_right bf">
-        <a href="#" class="vc ek kk hh rg ol il cm gi hi">
-           S'inscrire
-        </a>
+        <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 xl:w-8/12">
+          <div class="flex flex-wrap pt-12 lg:pt-0">
+            <div class="mb-12 grow-0 shrink-0 basis-auto w-full md:w-6/12 lg:w-full xl:w-6/12 px-3 md:px-6 xl:px-12">
+              <div class="flex items-start">
+                <div class="shrink-0">
+                  <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="headset" class="w-5 text-white"
+                      role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                      <path fill="currentColor"
+                        d="M192 208c0-17.67-14.33-32-32-32h-16c-35.35 0-64 28.65-64 64v48c0 35.35 28.65 64 64 64h16c17.67 0 32-14.33 32-32V208zm176 144c35.35 0 64-28.65 64-64v-48c0-35.35-28.65-64-64-64h-16c-17.67 0-32 14.33-32 32v112c0 17.67 14.33 32 32 32h16zM256 0C113.18 0 4.58 118.83 0 256v16c0 8.84 7.16 16 16 16h16c8.84 0 16-7.16 16-16v-16c0-114.69 93.31-208 208-208s208 93.31 208 208h-.12c.08 2.43.12 165.72.12 165.72 0 23.35-18.93 42.28-42.28 42.28H320c0-26.51-21.49-48-48-48h-32c-26.51 0-48 21.49-48 48s21.49 48 48 48h181.72c49.86 0 90.28-40.42 90.28-90.28V256C507.42 118.83 398.82 0 256 0z">
+                      </path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="grow ml-6">
+                  <p class="font-bold mb-1">Email:</p>
+                  <p class="text-gray-500">fablab@gmail.com</p>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="mb-12 grow-0 shrink-0 basis-auto w-full md:w-6/12 lg:w-full xl:w-6/12 px-3 md:px-6 xl:px-12">
+              <div class="flex items-start">
+                <div class="shrink-0">
+                  <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="newspaper"
+                      class="w-5 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                      <path fill="currentColor"
+                        d="M552 64H88c-13.255 0-24 10.745-24 24v8H24c-13.255 0-24 10.745-24 24v272c0 30.928 25.072 56 56 56h472c26.51 0 48-21.49 48-48V88c0-13.255-10.745-24-24-24zM56 400a8 8 0 0 1-8-8V144h16v248a8 8 0 0 1-8 8zm236-16H140c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm208 0H348c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm-208-96H140c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm208 0H348c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm0-96H140c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h360c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12z">
+                      </path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="grow ml-6">
+                  <p class="font-bold mb-1">Téléphone</p>
+                  <p class="text-gray-500">+241 74 57 00 40</p>
+                 
+                </div>
+              </div>
+            </div>
+            <div class="mb-12 grow-0 shrink-0 basis-auto w-full md:w-6/12 lg:w-full xl:w-6/12 px-3 md:px-6 xl:px-12">
+              <div class="flex align-start">
+                <div class="shrink-0">
+                  <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="newspaper"
+                      class="w-5 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                      <path fill="currentColor"
+                        d="M552 64H88c-13.255 0-24 10.745-24 24v8H24c-13.255 0-24 10.745-24 24v272c0 30.928 25.072 56 56 56h472c26.51 0 48-21.49 48-48V88c0-13.255-10.745-24-24-24zM56 400a8 8 0 0 1-8-8V144h16v248a8 8 0 0 1-8 8zm236-16H140c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm208 0H348c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm-208-96H140c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm208 0H348c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm0-96H140c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h360c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12z">
+                      </path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="grow ml-6">
+                  <p class="font-bold mb-1">Lieu:</p>
+                  <p class="text-gray-500">Haut-Ogooué / Moanda</p>
+                  
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
+  <!-- Section: Design Block -->
+  
+</div>
+<!-- Container for demo purpose -->
       <!-- ===== CTA End ===== -->
     </main>
     <!-- ===== Footer Start ===== -->
@@ -359,21 +406,59 @@
         <!-- Footer Bottom -->
       </div>
     </footer>
-    
-        <!-- ===== Footer End ===== -->
-    
-        <!-- ====== Back To Top Start ===== -->
-        <button
-      class="xc wf xf ie ld vg sr gh tr g sa ta _a"
-      @click="window.scrollTo({top: 0, behavior: 'smooth'})"
-      @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false"
-      :class="{ 'uc' : scrollTop }"
-    >
-      <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-        <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
-      </svg>
-    </button>
+
+    <!-- ===== Footer End ===== -->
+
+    <!-- ====== Back To Top Start ===== -->
+    <button
+  class="xc wf xf ie ld vg sr gh tr g sa ta _a"
+  @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+  @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false"
+  :class="{ 'uc' : scrollTop }"
+>
+  <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+  </svg>
+</button>
 
     <!-- ====== Back To Top End ===== -->
+
+    <script>
+      //  Pricing Table
+      const setup = () => {
+        return {
+          isNavOpen: false,
+
+          billPlan: 'monthly',
+
+          plans: [
+            {
+              name: 'Starter',
+              price: {
+                monthly: 29,
+                annually: 29 * 12 - 199,
+              },
+              features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
+            },
+            {
+              name: 'Growth Plan',
+              price: {
+                monthly: 59,
+                annually: 59 * 12 - 100,
+              },
+              features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
+            },
+            {
+              name: 'Business',
+              price: {
+                monthly: 139,
+                annually: 139 * 12 - 100,
+              },
+              features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
+            },
+          ],
+        };
+      };
+    </script>
   <script defer src="bundle.js"></script></body>
 </html>

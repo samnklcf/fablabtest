@@ -50,18 +50,43 @@
     >
       <nav>
         <ul class="tc _o sf yo cg ep">
-          <li><a href="index.html" class="xl" :class="{ 'mk': page === 'home' }">Accueil</a></li>
-          
-          <li><a href="./dev.html" class="xl">Développement Web et web mobile</a></li>
-          
-          <li><a href="./robotique.html" class="xl" >Robotique</a></li>
+          <li><a href="index.html" class="xl black">Accueil</a></li>
           
           
-          <li><a href="./3d.html" class="xl">Conception 3D</a></li>
+          <li class="c i black" x-data="{ dropdown: false }">
+            <a
+              href="#"
+              class="xl tc wf yf bg"
+              @click.prevent="dropdown = !dropdown"
+              :class="{ 'mk': page === 'blog-grid' || page === 'blog-single' || page === 'signin' || page === 'signup' || page === '404' }"
+            >
+              Nos formations
+  
+              <svg
+              :class="{ 'wh': dropdown }"
+              class="th mm we fd pf" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+              </svg>
+            </a>
+  
+            <!-- Dropdown Start -->
+            <ul class="a" :class="{ 'tc': dropdown }">
+              <li><a href="./dev.html" class="xl" :class="{ 'mk': page === 'blog-grid' }">Développement Web et web mobile</a></li>
+              <li><a href="./robotique.html" class="xl" :class="{ 'mk': page === 'blog-single' }">Robotique</a></li>
+              <li><a href="./3d.html" class="xl" :class="{ 'mk': page === 'signin' }">Conception 3D</a></li>
+              
+            </ul>
+            <!-- Dropdown End -->
+          </li>
+
+          <li><a href="./apropos.html" class="xl black" >A-propos</a></li>
+          <li><a href="./contact.html" class="xl black" >Contact</a></li>
          
           
          
         </ul>
+
+        
       </nav>
 
       <div class="tc wf ig pb no">
@@ -85,7 +110,7 @@
           <img src="images/shape-02.svg" alt="shape" class="xc 2xl:ud-block h u p va" />
           <img src="images/shape-03.svg" alt="shape" class="xc 2xl:ud-block h v w va" />
           <img src="images/shape-04.svg" alt="shape" class="h q r" />
-          <img src="./galeries/enginre/pexels-vanessa-loring-7868831-removebg-preview.png" alt="Woman" class="h q r ua" width="737"/>
+          <img src="./galeries/enginre/pexels-vanessa-loring-7868831-removebg-preview.png" alt="Woman" class="h q r ua" width="737" style="margin-top: 100px; border-radius: 50%;" />
         </div>
 
         <!-- Hero Content -->
@@ -102,8 +127,8 @@
                 >
 
                 <span class="tc sf">
-                  <a href="#" class="inline-block ek xj kk wm"> Contactez-nous au +241 74 57 00 40 </a>
-                  <span class="inline-block">Pour toutes vos questions</span>
+                  <a href="#" class="inline-block ek xj kk wm">  </a>
+                  <span class="inline-block"></span>
                 </span>
               </div>
             </div>
@@ -144,7 +169,7 @@
                 <img src="images/icon-03.svg" alt="Icon" />
               </div>
               <div>
-                <h4 class="ek yj go kk wm xb">4 mois d'incubation</h4>
+                <h4 class="ek yj go kk wm xb">3 mois d'incubation</h4>
                 <p>Lorem ipsum dolor sit amet conse adipiscing elit.</p>
               </div>
             </div>
@@ -161,12 +186,12 @@
             <div class="animate_left xc gn gg jn/2 i">
               <div>
                 <img src="images/shape-05.svg" alt="Shape" class="h -ud-left-5 x" />
-                <img src="./galeries/enginre/peti.jpg" alt="About" class="ib" />
-                <img src="images/about-02.png" alt="About" />
+                <img src="./galeries/enginre/peti.jpg" alt="About" class="ib" style="border-radius: 5px;" />
+                <img src="./galeries/enginre/lolp.jpg" alt="About" style="width: 290px; border-radius: 5px;" />
               </div>
               <div>
                 <img src="images/shape-06.svg" alt="Shape" />
-                <img src="images/about-03.png" alt="About" class="ob gb" />
+                <img src="./galeries/enginre/Computer screen, code, program, 1080x2160 wallpaper.jpg" alt="About" class="ob gb" style=" width: 290px !important; height: 500px; border-radius: 5px;" />
                 <img src="images/shape-07.svg" alt="Shape" class="bb" />
               </div>
             </div>
@@ -236,10 +261,10 @@
                   </div>
                 </div>
                 <h4 class="ek tj ml il kk wm xl eq lb">
-                  <a href="blog-single.html">Développement web et web mobile</a>
+                  <a href="./dev.html">Développement web et web mobile</a>
                 </h4>
                 <br>
-                <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi"
+                <a href="./dev.html" class="vc ek rg lk gh sl ml il gi hi"
                     >Voir plus</a
                   >
               </div>
@@ -261,10 +286,10 @@
                   </div>
                 </div>
                 <h4 class="ek tj ml il kk wm xl eq lb">
-                  <a href="blog-single.html">Robotique</a>
+                  <a href="./robotique.html">Robotique</a>
                 </h4>
                 <br>
-                <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi"
+                <a href="./robotique.html" class="vc ek rg lk gh sl ml il gi hi"
                     >Voir plus</a
                   >
               </div>
@@ -287,10 +312,10 @@
                   </div>
                 </div>
                 <h4 class="ek tj ml il kk wm xl eq lb">
-                  <a href="blog-single.html">Conception 3D</a>
+                  <a href="./3d.html">Conception 3D</a>
                 </h4>
                 <br>
-                <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi"
+                <a href="./3d.html" class="vc ek rg lk gh sl ml il gi hi"
                     >Voir plus</a
                   >
               </div>
@@ -349,7 +374,7 @@
             <!-- Service Item -->
             <div class="animate_top sg oi pi zq ml il am cn _m">
               <img src="images/icon-06.svg" alt="Icon" />
-              <h4 class="ek zj kk wm nb _b">4 mois d'incubation</h4>
+              <h4 class="ek zj kk wm nb _b">3 mois d'incubation</h4>
               <p>Pendant ce temps, les apprenants seronst en immersion dans la <b>COMILOG</b></p>
             </div>
 
@@ -538,26 +563,37 @@
 
         <div class="vd ro tc sf rn un gg vn">
           <div class="animate_top">
-            <h4 class="kk wm tj ec">Quick Links</h4>
+            <h4 class="kk wm tj ec">Liens utiles</h4>
 
             <ul>
-              <li><a href="#" class="sc xl vb">Accueil</a></li>
-              <li><a href="#" class="sc xl vb">Nos formations</a></li>
+              <li><a href="./index.html" class="sc xl vb">Accueil</a></li>
+              <li><a href="./apropos.html" class="sc xl vb">A propos</a></li>
+              <li><a href="./contact.html" class="sc xl vb">Contact</a></li>
               
             </ul>
           </div>
 
           <div class="animate_top">
-            <h4 class="kk wm tj ec">Services</h4>
+            <h4 class="kk wm tj ec">Nos formations</h4>
 
             <ul>
-              <li><a href="#" class="sc xl vb">Développement Web</a></li>
-              <li><a href="#" class="sc xl vb">Conception 3D</a></li>
-              <li><a href="#" class="sc xl vb">Robotique</a></li>
+              <li><a href="./dev.html" class="sc xl vb">Développement Web</a></li>
+              <li><a href="./3d.html" class="sc xl vb">Conception 3D</a></li>
+              <li><a href="./robotique.html" class="sc xl vb">Robotique</a></li>
             
             </ul>
           </div>
 
+          <div class="animate_top">
+            <h4 class="kk wm tj ec">Contact</h4>
+
+            <ul>
+              <li><a href="mailto:fablab@gmail.com" class="sc xl vb">fablab@gmail.com</a></li>
+              <li><a href="tel:074570040" class="sc xl vb">074 57 00 40</a></li>
+              <li><a href="#" class="sc xl vb">Lieu: Moanda</a></li>
+            
+            </ul>
+          </div>
           
 
           <div class="animate_top">
